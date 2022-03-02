@@ -97,6 +97,10 @@ app.delete("/api/quote/:id", auth, async (req, res) => {
   return res.json({ status: "ok", users: users });
 });
 
-app.listen(8000, () => {
-  console.log("server started on ", 8000);
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, (e) => {
+  if(e)
+  console.log(e);
+  console.log("server started on ", PORT);
 });
