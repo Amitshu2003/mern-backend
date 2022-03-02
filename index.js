@@ -16,6 +16,10 @@ app.use(express.json());
 mongoose.connect(process.env.MONGODB_URI);
 
 
+app.get("/",(req,res)=>{
+  res.send("hello");
+})
+
 app.post("/api/login", async (req, res) => {
   const user = await User.findOne({
     email: req.body.email,
